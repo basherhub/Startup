@@ -133,39 +133,30 @@
 
 // myBtn.addEventListener("click", sayNumber);        // addNumber
 
-
-
-
-
-document.body.style.background = "black";
-
-// createElement
-var text = document.createElement("div");
-text.innerHTML = "click me!";
-text.style.color = "red";
-text.style.lineHeight = "65px";
-
 // getElementById
 var myBtn = document.getElementById("btn1");
 
-// appendChild
-myBtn.appendChild(text);
+var numberEl = document.createElement("div");
+numberEl.innerHTML = "1000$";
+numberEl.style.color = "white";
+numberEl.style.lineHeight = "65px";
 
-// Closure
-var text = document.createElement("div");
-	text.innerHTML = "1000";
-	text.style.color = "blue";
-	text.style.lineHeight = "65px";
-myBtn.appendChild(text);
-
+myBtn.appendChild(numberEl);
 
 var number = 1000;
+
 var sayNumber = function() {
-	text.innerHTML = number + "$";
-  	console.log( number );
+	numberEl.innerHTML = number + "$";
+	console.log( number );
 	number = number + 1000;
+  if(number > 10 * 1000) {
+    clearInterval(interValDeleter);
+  }
 }
-myBtn.addEventListener("click",sayNumber);
+
+var interValDeleter = setInterval(sayNumber, 1000);
+
+myBtn.addEventListener("click", sayNumber);
 
 
 
