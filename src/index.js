@@ -134,29 +134,57 @@
 // myBtn.addEventListener("click", sayNumber);        // addNumber
 
 // getElementById
+// var myBtn = document.getElementById("btn1");
+
+// var numberEl = document.createElement("div");
+// numberEl.innerHTML = "1000$";
+// numberEl.style.color = "white";
+// numberEl.style.lineHeight = "65px";
+
+// myBtn.appendChild(numberEl);
+
+// var number = 1000;
+
+// var sayNumber = function() {
+// 	numberEl.innerHTML = number + "$";
+// 	console.log( number );
+// 	number = number + 1000;
+//   if(number > 10 * 1000) {
+//     clearInterval(interValDeleter);
+//   }
+// }
+
+// var interValDeleter = setInterval(sayNumber, 1000);
+
+// myBtn.addEventListener("click", sayNumber);
+
+
+// ex2:
 var myBtn = document.getElementById("btn1");
-
-var numberEl = document.createElement("div");
-numberEl.innerHTML = "1000$";
-numberEl.style.color = "white";
-numberEl.style.lineHeight = "65px";
-
-myBtn.appendChild(numberEl);
-
-var number = 1000;
-
+var btnText = document.querySelector(".btnText");
+var number;
 var sayNumber = function() {
-	numberEl.innerHTML = number + "$";
-	console.log( number );
-	number = number + 1000;
-  if(number > 10 * 1000) {
-    clearInterval(interValDeleter);
+  number = Math.floor((Math.random() * 10) + 1);
+  console.log( number );
+  text.innerHTML = number;
+}
+var text = document.createElement("div");
+text.style.color = "red";
+text.style.lineHeight = "65px";
+myBtn.appendChild(text);
+
+btnText.addEventListener("click", bash )
+var isCounting = false;
+var deleter;
+function bash(){
+  if (isCounting){
+    clearInterval(deleter);
+    isCounting = false;
+  } else {
+    deleter = setInterval(sayNumber, 1000);
+    isCounting = true;
   }
 }
-
-var interValDeleter = setInterval(sayNumber, 1000);
-
-myBtn.addEventListener("click", sayNumber);
 
 
 
